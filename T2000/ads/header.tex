@@ -1,0 +1,250 @@
+\documentclass[%
+%	draft,				% Einkommentieren um Satzfehler zu sehen
+	final,				% Einkommentieren für Abgabe (Kommentare werden ausgeblendet etc.)
+	pdftex,
+	oneside,			% Einseitiger Druck.
+	12pt,				% Schriftgroesse
+	parskip=half,		% Halbe Zeile Abstand zwischen Absätzen.
+	headheight = 0pt,	% Höhe der Kopfzeile
+	footheight = 25pt,	% Höhe der Fusszeile
+	abstracton,		% Abstract Überschriften
+	headings=normal,	% Größe der Überschrifen = bigheadings, normalheadings, smallheadings
+	DIV=calc,		% Satzspiegel berechnen
+	BCOR=8mm,		% Bindekorrektur links: 8mm
+	headinclude=false,	% Kopfzeile nicht in den Satzspiegel einbeziehen
+	footinclude=false,	% Fußzeile nicht in den Satzspiegel einbeziehen
+	listof=totoc,		% Abbildungs-/ Tabellenverzeichnis im Inhaltsverzeichnis darstellen
+	toc=bibliography,	% Literaturverzeichnis im Inhaltsverzeichnis darstellen
+]{scrreprt}	% scrreprt = Koma-Script report-Klasse, fuer laengere Bachelorarbeiten alternativ auch: scrbook
+
+% Einstellungen laden
+\usepackage{xstring}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{xargs} % mehrere Parameter angeben
+
+%Variablen laden
+\input{ads/variables.tex}
+
+% Einstellung der Sprache des Paketes Babel und der Verzeichnisüberschriften
+\usepackage[english, ngerman]{babel}
+
+%%%%%%% Package Includes %%%%%%%
+
+\usepackage[margin=\seitenrand,foot=1cm]{geometry}	% Seitenränder und Abstände
+\usepackage[activate]{microtype} %Zeilenumbruch und mehr
+\usepackage[onehalfspacing]{setspace}
+\usepackage{makeidx}
+\usepackage[autostyle=true,german=quotes]{csquotes}
+\usepackage{longtable}
+\usepackage{enumitem}	% mehr Optionen bei Aufzählungen
+\usepackage{graphicx}
+\usepackage{xcolor} 	% für HTML-Notation
+\usepackage{float}
+\usepackage{array}
+\usepackage{pifont}
+\usepackage{calc}		% zum Rechnen (Bildtabelle in Deckblatt)
+\usepackage[right]{eurosym}
+\usepackage{wrapfig}	% zum einbinden von Bildern in den Fließtext
+\usepackage{framed} 
+\usepackage{pgffor} % für automatische Kapiteldateieinbindung
+\usepackage[perpage, hang, multiple, stable]{footmisc} % Fussnoten
+\usepackage[printonlyused]{acronym} % falls gewünscht kann die Option footnote eingefügt werden, dann wird die Erklärung nicht inline sondern in einer Fußnote dargestellt
+\usepackage{listings}
+
+%% Warnungen Filtern und auf relevante beschränken %%
+\usepackage{scrhack}	% unterdrückt @float Warnungen
+\usepackage{silence}	% unterdrückt spezifizierte Warnungen 
+\WarningFilter{scrreprt}{Usage of package `fancyhdr'} % unterdrückt Warnung über Gebrauch von fancyhdr mit Koma-Script zusammen
+
+%%% Hilfe beim schreiben %%%
+
+% todo Notes
+\usepackage[obeyFinal, colorinlistoftodos]{todonotes}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=orange,backgroundcolor=orange!25,bordercolor=orange,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=lime,backgroundcolor=lime!25,bordercolor=lime,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=purple,backgroundcolor=purple!25,bordercolor=purple,#1]{#2}}
+\newcommandx{\missing}[2][1=]{\todo[linecolor=yellow,backgroundcolor=yellow!25,bordercolor=yellow,#1]{#2}}
+
+% für nutzung von Blindtext
+\usepackage{blindtext}
+
+%%%%%% Configuration %%%%%
+
+%% Anwenden der Einstellungen
+
+\usepackage[scaled]{\schriftart}
+\renewcommand*\familydefault{\sfdefault}
+
+\definecolor{LinkColor}{HTML}{00007A}
+\definecolor{ListingBackground}{HTML}{E6E6E6}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.13,0.13,1}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{commentgreen}{rgb}{0.0,0.5,0}
+\colorlet{punct}{magenta!60!black}
+\definecolor{delim}{RGB}{20,105,176}
+%\colorlet{numb}{magenta!60!black}
+
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{%
+	\fancyhf{}
+	\fancyfoot[L]{\itshape\small\nouppercase{\leftmark}}
+	\fancyfoot[R]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+	
+\fancypagestyle{chapter}{%
+	\fancyhf{}
+	\fancyfoot[R]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+
+% Titel, Autor und Datum
+\title{\titel}
+\author{\autor}
+\date{\datum}
+
+% PDF Einstellungen
+\usepackage[%
+	pdftitle={\titel},
+	pdfauthor={\autor},
+	pdfsubject={\arbeit},
+	pdfcreator={pdflatex, LaTeX with KOMA-Script},
+	pdfpagemode=UseOutlines, 		% Beim Oeffnen Inhaltsverzeichnis anzeigen
+	pdfdisplaydoctitle=true, 		% Dokumenttitel statt Dateiname anzeigen.
+	pdflang={de}, 			% Sprache des Dokuments.
+]{hyperref}
+\usepackage[figure]{hypcap}
+
+% (Farb-)einstellungen für die Links im PDF
+\hypersetup{%
+	colorlinks=true, 		% Aktivieren von farbigen Links im Dokument
+	linkcolor=LinkColor, 	% Farbe festlegen
+	citecolor=LinkColor,
+	filecolor=LinkColor,
+	menucolor=LinkColor,
+	urlcolor=LinkColor,
+	linktocpage=true, 		% Nicht der Text sondern die Seitenzahlen in Verzeichnissen klickbar
+	bookmarksnumbered=true 	% Überschriftsnummerierung im PDF Inhalt anzeigen.
+}
+% Workaround um Fehler in Hyperref, muss hier stehen bleiben
+\usepackage{bookmark} %nur ein latex-Durchlauf für die Aktualisierung von Verzeichnissen nötig
+
+% Schriftart in Captions etwas kleiner
+\addtokomafont{caption}{\small}
+\renewcaptionname{ngerman}{\figurename}{Abb.}
+\renewcaptionname{ngerman}{\tablename}{Tab.}
+
+% Literaturverweise
+\usepackage[
+	backend=biber,		% empfohlen. Falls biber Probleme macht: bibtex
+	bibwarn=true,
+	bibencoding=utf8,	% wenn .bib in utf8, sonst ascii
+	sortlocale=de-DE,
+	style=\zitierstil,
+]{biblatex}
+\addbibresource{bibliographie.bib}
+
+% Glossar
+\usepackage[nonumberlist,toc]{glossaries}
+\makeglossaries
+\input{ads/glossaries.tex}
+\glsaddall
+
+%%%%%% Additional settings %%%%%%
+
+% Hurenkinder und Schusterjungen verhindern
+% http://projekte.dante.de/DanteFAQ/Silbentrennung
+\clubpenalty = 10000 % schließt Schusterjungen aus (Seitenumbruch nach der ersten Zeile eines neuen Absatzes)
+\widowpenalty = 10000 % schließt Hurenkinder aus (die letzte Zeile eines Absatzes steht auf einer neuen Seite)
+\displaywidowpenalty=10000
+
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\vfuzz\hfuzz
+\raggedbottom
+
+% Bildpfad
+\graphicspath{{images/}}
+
+% Code Einstellungen
+%\lstloadlanguages{[Sharp]C}
+\lstdefinestyle{sharpc}{%
+	language=[Sharp]C,		% Standardsprache des Quellcodes
+	numbers=left,			% Zeilennummern links
+	stepnumber=1,			% Jede Zeile nummerieren.
+	numbersep=8pt,			% 5pt Abstand zum Quellcode
+	numberstyle=\scriptsize,		% Zeichengrösse 'tiny' für die Nummern.
+	breaklines=true,		% Zeilen umbrechen wenn notwendig.
+	breakautoindent=true,	% Nach dem Zeilenumbruch Zeile einrücken.
+	postbreak=\space,		% Bei Leerzeichen umbrechen.
+	tabsize=1,				% Tabulatorgrösse 2
+	basicstyle=\normalfont\ttfamily, % Nichtproportionale Schrift, klein für den Quellcode
+	showspaces=false,		% Leerzeichen nicht anzeigen.
+	showstringspaces=false,	% Leerzeichen auch in Strings ('') nicht anzeigen.
+	extendedchars=true,		% Alle Zeichen vom Latin1 Zeichensatz anzeigen.
+	captionpos=b,			% sets the caption-position to bottom
+	backgroundcolor=\color{ListingBackground}, % Hintergrundfarbe des Quellcodes setzen.
+	xleftmargin=0pt,		% Rand links
+	xrightmargin=0pt,		% Rand rechts
+	frame=single,			% Rahmen an
+	frameround=ffff,
+	rulecolor=\color{darkgray},	% Rahmenfarbe
+	fillcolor=\color{ListingBackground},
+	keywordstyle=\color{darkblue},
+	commentstyle=\color{commentgreen},
+	stringstyle=\color[rgb]{0.639,0.082,0.082},
+}
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    string=[s][\color{black}]{"}{"},
+    literate=
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1}
+}
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan}
+}
+
+%define here some more styles
+\lstset{style=sharpc}
+\lstset{morekeywords={var}}
+\lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+}
+
+% Umbennung des Listings
+\renewcommand\lstlistingname{Code}
+\renewcommand\lstlistlistingname{Codeverzeichnis}
+\def\lstlistingautorefname{Code}
+
+% Abstände in Tabellen
+\setlength{\tabcolsep}{\spaltenabstand}
+\renewcommand{\arraystretch}{\zeilenabstand}
+
+% Comfortänderungen
+\newcommand{\fett}{\textbf}
