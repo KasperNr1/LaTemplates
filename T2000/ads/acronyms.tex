@@ -8,8 +8,10 @@
 %		\acp{Abk.}  --> gibt Plural aus (angefügtes 's'); das zusätzliche 'p' funktioniert auch bei obigen Befehlen
 %	siehe auch: http://golatex.de/wiki/%5Cacronym
 %	
-\begin{acronym}[HATEOAS]
-\setlength{\itemsep}{-\parsep}
+
+% Setzt den Horizontalen Abstand zwischen Acronym und Erklärung so, dass auch ein Ac. mit 6 Zeichen passt.
+\begin{acronym}[012345] % Nur die Menge der Zeichen ist für den Parameter relevant   
+\setlength{\itemsep}{-0.5\parsep} % Zeilenabstand zwischen Einträgen
 
 \acro{WIP}{Work in Progress}
 \end{acronym}
