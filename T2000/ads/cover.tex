@@ -20,14 +20,14 @@
 	\end{center}
 	\vfill
 	\begin{spacing}{1.2}
-	\begin{tabbing}
-		mmmmmmmmmmmmmmmmmmmmmmmmmm             \= \kill
-		\textbf{Bearbeitungszeitraum}       \>  \zeitraum\\
-		\textbf{Matrikelnummer, Kurs}  \>  \martrikelnr, \kurs\\
-		\textbf{Ausbildungsfirma}                  \>  \firmateilE \\ 
-		\textbf{}							   \>  \firmateilZ, \firmenort\\
-		\textbf{Betreuer}               \>  \betreuer\\
-		%	\textbf{Gutachter}              \>  \gutachter
-	\end{tabbing}
+	{
+	\renewcommand{\arraystretch}{1}	% Zeilenabstand innerhalb dieses Blocks anpassen
+	\begin{tabular}{@{}p{0.5 \textwidth} p{0.5 \textwidth}}
+		\textbf{Bearbeitungszeitraum}   &  \zeitraum\\
+		\textbf{Matrikelnummer, Kurs}   &  \martrikelnr, \kurs\\
+		\textbf{Ausbildungsfirma}       &  \firma, \firmenort\\
+		\textbf{Betreuer} 				&  \betreuer\\
+	\end{tabular}
+	}
 	\end{spacing}
 \end{titlepage}
