@@ -1,0 +1,48 @@
+\documentclass[12pt, aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+
+% Themes and Colors at https://www.overleaf.com/learn/latex/beamer#Reference_guide
+\usetheme{Antibes}
+\usecolortheme{beaver}
+
+\setbeamertemplate{navigation symbols}{} % Hide PDF navigation symbols
+\setbeamercovered{transparent} % Content
+%\setbeamertemplate{headline}{} % No Navigation Bar at the Top 
+
+\title{First Beamer Presentation}
+\author{Matti Bos}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Contents}
+\tableofcontents
+\end{frame}
+
+\section{''Animating'' Bullet Points}
+\begin{frame}{This is the heading}
+
+\begin{itemize}
+    \item <1-> From Start to end
+    \item <2> Only slide 2
+    \item <3-> Slide 3
+\end{itemize}
+
+Das hier ist Text zur Folie. Ich habe ihn nur einmal getippt und mit dynamischen Features ausgestattet. Zum Beispiel ist \alert<2>{das Hier auf Folie 2} farbig markiert.
+
+\vspace{2em}
+
+\only<3>{Diese weitere Zeile ist nur auf der letzten Seite des Frames zu sehen}
+
+\end{frame}
+
+\section{More Content}
+\begin{frame}{Very interesting Title}
+passiert hier auch noch irgendwas?
+    
+
+\end{frame}
+
+\end{document}
