@@ -55,14 +55,15 @@ Das Visal Studio Code Plugin bietet die Möglichkeit PUML Diagramme direkt zu \L
 
 \begin{figure}[H]
     \centering
-    \include{images/Diagrams/PlantUml.tex}
+    \input{images/Diagrams/PlantUml.tex}
     \caption{Das hier ist ein Diagram von PlantUml -> \LaTeX}
 \end{figure}
 
-Und noch ein zweites
+Und noch ein zweites, diesmal aber mit einer veränderten Größe:
 \begin{figure}[H]
-    \begin{center}
-        \include{images/Diagrams/PlantUml.tex}
-    \end{center}
+    \centering
+    \resizebox{10cm}{!}{
+        \input{images/Diagrams/PlantUml.tex}
+    }
     \caption{Das hier ist ein weiteres Diagram von PlantUml -> \LaTeX}
 \end{figure}
