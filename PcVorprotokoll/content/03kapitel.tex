@@ -1,0 +1,69 @@
+\chapter{Testing Stuff}
+\section{SourceCode}
+Hier ist wichtiger SourceCode. Es wäre toll wenn er so im Codeverzeichnis aufgeführt wird.
+\begin{lstlisting}[caption=Test um SourceCode zu zeigen, label=codeExample]
+main(){
+    printf("Hello");
+}
+\end{lstlisting}
+
+\section{Bild}
+Ein jedes Bild sollte im Abbildungsverzeichnis gelistet sein.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/logoipsum.png}
+    \caption{Das ist ein Logo}
+    \label{fig:ExampleImage}
+\end{figure}
+
+
+\section{Tabelle}
+Wenn man den Überblick über all seine tabellen verliert, passieren schlimme Dinge
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        HTTP Methode & boring \\
+        \hline
+    \end{tabular}
+    \caption{Untertitel der Tabelle}
+    \label{tab:Requests}
+\end{table}
+
+\section{Compilieren}
+Um das gesamte Dokument mit Glossar und Literaturverzeichnis zu erstellen müssen die folgenden Befehle ausgeführt werden.
+
+\begin{lstlisting}[caption=Compilieren des Dokuments, label=CompileInstructions]
+pdflatex main           // Wird Sauer sein wegen fehlender Einträge. Mit "CTRL + C" Fehlermeldungen skippen
+
+makeglossaries main     // Glossar generieren
+
+pdflatex main           // Mit korrektem Glossar kann eine Hilfsdatei für Biber erstellt werden
+
+biber main              // Biblatex Datei verarbeiten
+
+pdflatex main           // Literaturverweise verwenden
+
+pdflatex main           // Zweiter Durchlauf um Seitenzahlen zu korrigieren
+\end{lstlisting}
+
+\section{Citations}
+Es ist unmöglich aus Vim zu entkommen \cite{nerd_how_2012}
+
+\section{PlantUML}
+Das Visal Studio Code Plugin bietet die Möglichkeit PUML Diagramme direkt zu \LaTeX zu exportieren.
+
+\begin{figure}[H]
+    \centering
+    \input{images/Diagrams/PlantUml.tex}
+    \caption{Das hier ist ein Diagram von PlantUml -> \LaTeX}
+\end{figure}
+
+Und noch ein zweites, diesmal aber mit einer veränderten Größe:
+\begin{figure}[H]
+    \centering
+    \resizebox{10cm}{!}{
+        \input{images/Diagrams/PlantUml.tex}
+    }
+    \caption{Das hier ist ein weiteres Diagram von PlantUml -> \LaTeX}
+\end{figure}
