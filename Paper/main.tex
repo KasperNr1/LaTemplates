@@ -1,0 +1,125 @@
+% !TEX encoding = UTF-8 Unicode
+
+% Beispiel für ein LaTeX-Dokument im Format "seminarvorlage"
+\documentclass[ngerman]{seminarvorlage}
+% ngerman = Deutsch in neuer Rechtschreibung, alternativ english
+\usepackage{babel} % automatische Sprachunterstützung
+
+\usepackage[utf8]{inputenc} % Kodierung der Non-ASCII-Zeichen
+\usepackage[T1]{fontenc} % Moderne Fonts, Trennung von Wörtern mit Umlauten
+\usepackage{cleveref} % für bequeme Referenzen, siehe \cref unten
+
+\usepackage{embrac}% upright brackets in emphasised text, () and [], empfohlen
+
+%\usepackage{biblatex}% besser als bibtex, aber dann biber statt bibtex benutzen
+
+\begin{document}
+
+% Unbedingt angeben: Titel, Autoren
+% Freiwillig: Adresse, E-Mail
+\title{Herstellung von Gummibärchen: Ein Überblick über den Produktionsprozess}
+\numberofauthors{2}
+\author{
+  \alignauthor Je Li Bon \\
+    \email{je@libon.org}
+  \alignauthor Han Srieger\\
+    \email{i72160@hb.dhbw-stuttgart.de}
+}
+
+\maketitle% Titelangaben produzieren, aber kein Inhaltsverzeichnis, \tableofcontents funktioniert nicht!
+\newpage
+
+\abstract{Diese Arbeit bietet einen Überblick über den Produktionsprozess von Gummibärchen, einem beliebten Süßwarenprodukt. Die Herstellung erfordert spezielle Zutaten und technische Verfahren, um gleichbleibende Qualität und Konsistenz zu gewährleisten. Die wesentlichen Schritte – von der Zubereitung der Grundmasse über die Aromatisierung bis hin zur Formgebung und Trocknung – werden erläutert, ebenso wie wichtige Qualitätskontrollen, die sicherstellen, dass das Endprodukt den Anforderungen entspricht.
+}
+
+\keywords{Gelatine, Zucker, Bär, Glukose.}
+
+% Section-Überschriften werden automatisch in GROSSBUCHSTABEN gesetzt
+\section{Einleitung}
+
+Gummibärchen zählen zu den beliebtesten Süßwaren. Sie machen Kinder und Erwachsene froh. Das Fruchtgummi, das erstmals in den 1920er Jahren von dem Bonner Konditor Hans Riegel unter dem Markennamen Haribo entwickelt wurde, hat sich seither zu einem international gefragten Produkt entwickelt. Die Herstellung von Gummibärchen ist ein technologisch anspruchsvoller Prozess. Siehe insbesondere die Standardwerke von Hari und Bo~\cite{ACM2019,Ivory2001}.
+
+ Ziel dieser Arbeit ist es, einen detaillierten Einblick in die wichtigsten Schritte der Produktion von Gummibärchen zu geben und die zentralen Qualitätskriterien für diese Süßware zu beleuchten.
+
+% Jede Section am besten mit einem Kommentar hier im Quelltext markieren
+\section{Der Herstellungsprozess von Gummibärchen}
+
+Gummibärchen werden in sogenannten Gummibärchen-Fabriken gefertigt. In \cref{fabrik} sehen wir ein Beispiel.
+
+\begin{figure}[htbp]
+\begin{center}
+\unitlength8mm % hier skalieren, falls gewünscht
+\begin{picture}(4,6)
+%außen
+\put(0,0){\line(1,0){4}}
+\put(4,0){\line(0,1){3}}
+\put(4,3){\line(-1,1){2}}
+\put(2,5){\line(-1,-1){2}}
+\put(0,3){\line(0,-1){3}}
+%innen
+\put(4,3){\line(-1,0){4}}
+\end{picture}
+\end{center}
+\caption{Eine typische Gummibärenfabrik
+         siehe auch~\protect\cite{Ivory2001}.}
+\label{fabrik}
+\end{figure}
+
+
+Die Herstellung von Gummibärchen beginnt mit der Vorbereitung der Grundmasse. Diese besteht in der Regel aus einer Mischung von Zucker, Glukosesirup und Gelatine. Diese drei Hauptbestandteile bilden die Basis für die gummiartige Konsistenz, die Gummibärchen auszeichnet. Zucker und Glukosesirup verleihen dem Produkt die notwendige Süße, während die Gelatine für die charakteristische Elastizität verantwortlich ist. In modernen Produktionsanlagen werden diese Zutaten in großen Mischbehältern bei hoher Temperatur aufgelöst. Dabei ist es wichtig, die Masse kontinuierlich zu rühren, um ein Anbrennen zu vermeiden und eine homogene Konsistenz zu gewährleisten ~\cite{ACM2019}.
+
+
+
+Nach der Vorbereitung der Grundmasse erfolgt der Schritt der Aromatisierung und Färbung. Hier werden der noch flüssigen Masse Fruchtaromen und Farbstoffe hinzugefügt. Die Auswahl der Aromen reicht von klassischen Sorten wie Zitrone, Orange oder Erdbeere bis hin zu exotischeren Varianten wie Ananas oder Mango. Dabei kommen sowohl natürliche als auch künstliche Aromen zum Einsatz. Für die Färbung der Gummibärchen werden heute zunehmend natürliche Farbstoffe verwendet, wie etwa Extrakte aus Spinat für Grün oder Rote-Bete-Saft für Rot. Die Aromatisierung und Färbung müssen präzise abgestimmt sein, um den typischen Geschmack und das ansprechende Aussehen der Gummibärchen sicherzustellen ~\cite{gummi}.
+
+Sobald die Masse fertiggestellt ist, wird sie in speziell vorbereitete Formen gegossen. Diese Formen bestehen in der Regel aus Maisstärke und enthalten Vertiefungen in der Form von kleinen Bären. Der Gießvorgang erfolgt maschinell und muss äußerst genau durchgeführt werden, um sicherzustellen, dass alle Bärchen eine einheitliche Größe und Form haben. Nach dem Gießen beginnt der Aushärtungsprozess, bei dem die Gummibärchen mehrere Stunden bei kontrollierter Temperatur und Luftfeuchtigkeit trocknen. Dieser Schritt ist entscheidend für die endgültige Konsistenz der Fruchtgummis ~\cite{ACM2019,Ivory2001}.
+
+Nach dem Aushärten werden die Gummibärchen aus den Formen gelöst und mit einer dünnen Schicht Trennmittel, meist aus Wachs oder Stärke, überzogen, um zu verhindern, dass sie aneinander kleben. Abschließend durchlaufen die Bärchen eine strenge Qualitätskontrolle, bei der Form, Größe, Konsistenz und Geschmack geprüft werden. Erst danach werden sie verpackt und für den Versand vorbereitet ~\cite{Black1988}.
+
+
+In \cref{tttabelle} sind verschiedene Produkte dargestellt.
+
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Material & Tierart & essbar\\
+\hline
+Gummi & Bär & ja\\
+Lakritz & Schnecke & geht so\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Das gibt es alles.}
+\label{tttabelle}
+\end{table}
+
+% und schon der letzte Abschnitt
+\section{Zusammenfassung}
+Die Herstellung von Gummibärchen ist ein aufwändiger Prozess, der aus mehreren komplexen Schritten besteht. Von der Zubereitung der Grundmasse über die Aromatisierung und Formgebung bis hin zur Trocknung und Qualitätskontrolle erfordert die Produktion modernste Technik und sorgfältige Überwachung. Der Erfolg dieses Prozesses liegt in der präzisen Abstimmung der Zutaten und Verfahren, die zusammen für das charakteristische Aussehen, die Textur und den Geschmack der Gummibärchen verantwortlich sind. Diese gleichbleibende Qualität ist entscheidend für die Beliebtheit der Fruchtgummis bei Verbrauchern weltweit. Auch Artikel mit vielen Autoren~\cite{Black1988}
+befassen sich mit diesem Thema.
+
+
+% Bibliographie entweder direkt hier eingeben (nur im Notfall)...
+%\begin{thebibliography}{9}
+%\bibitem{ACM2019}
+%ACM.
+%\newblock How to classify works using ACM's computing classification system.
+%\newblock \url{http://www.acm.org/class/how_to_use.html}.
+%
+%\bibitem{Ivory2001}
+%M.~Y. Ivory and M.~A. Hearst.
+%\newblock The state of the art in automating usability evaluation of user
+%  interfaces.
+%\newblock {\em ACM Comput. Surv.}, 33(4):470--516, 2001.
+%
+%\end{thebibliography}
+
+% ... oder die Bibliographie mit Hilfe von BibTeX generieren,
+% dies ist auf jeden Fall die bessere Lösung und sollte nach
+% Möglichkeit immer verwendet werden:
+\bibliographystyle{abbrv}
+\bibliography{literatur} % Daten aus der Datei literatur.bib verwenden.
+
+\end{document}
