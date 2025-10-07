@@ -8,6 +8,20 @@
 	\end{spacing}
 	\newpage
 
+	% Inhaltsverzeichnis
+	\begin{spacing}{1.1}
+		\begingroup
+			
+			\pagestyle{empty}
+			
+			\setcounter{tocdepth}{2}
+			
+			\tableofcontents
+			%\clearpage %löscht die Seitenzahlen ab der zweiten Seite
+		\endgroup
+	\end{spacing}
+	\newpage
+
 	\pagestyle{chapter}
 	\renewcommand*{\chapterpagestyle}{chapter}
 	
