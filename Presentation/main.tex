@@ -1,5 +1,6 @@
 \documentclass[12pt, aspectratio=169]{beamer}
 \usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
 
 % Themes and Colors at https://www.overleaf.com/learn/latex/beamer#Reference_guide
 \usetheme{Antibes}
@@ -12,6 +13,8 @@
 \title{First Beamer Presentation}
 \author{Matti Bos}
 \date{\today}
+
+% \logo{\includegraphics[height=1cm]{images/logoipsum.png}} % Add Logo on all Slides
 
 \begin{document}
 
@@ -31,16 +34,51 @@
 \end{itemize}
 
 Das hier ist Text zur Folie. Ich habe ihn nur einmal getippt und mit dynamischen Features ausgestattet. Zum Beispiel ist \alert<2>{das Hier auf Folie 2} farbig markiert.
+\end{frame}
 
-\vspace{2em}
+\begin{frame}[fragile]
+\only<1>{Diese weitere Zeile ist nur auf der ersten Seite des Frames zu sehen}
 
-\only<3>{Diese weitere Zeile ist nur auf der letzten Seite des Frames zu sehen}
+\vspace{1em}
+
+Der Text über mir braucht nur dann Platz, wenn er tatsächlich angezeigt wird. Das liegt an \verb|\only|. Normalerweise wird der Platz fest kalkuliert und leer gelassen.
+
+\pause
+Noch mehr Info
 
 \end{frame}
 
 \section{More Content}
 \begin{frame}{Very interesting Title}
 passiert hier auch noch irgendwas?
+    
+
+\end{frame}
+
+\section{Boxes}
+\begin{frame}
+\frametitle{Sample frame title}
+
+In this slide, some important text will be
+\alert{highlighted} because it's important.
+Please, don't abuse it.
+
+\begin{block}{Remark}
+Sample text
+\end{block}
+
+\begin{alertblock}{Important theorem}
+Sample text in red box
+\end{alertblock}
+
+\begin{exampleblock}{Ein Deutsches Beispiel}
+Sample text in green box. The title of the block is ``Examples".
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Fake}
+
     
 
 \end{frame}
