@@ -1,0 +1,29 @@
+% =======================================================
+% NEUER ABSCHNITT: Referenzen
+% =======================================================
+\section{Referenzen}
+
+\begin{frame}[allowframebreaks] % Erlaube Seitenumbrüche, falls die Liste lang ist
+    \frametitle{Literaturverzeichnis}
+    
+    Man kann Beamer-Folien zitieren \cite{Knuth97}.
+    Oder auch andere Quellen \cite{Lamport94}.
+    
+    \vspace{1em}
+    
+    % Einfache 'thebibliography' Umgebung, funktioniert ohne BibTeX/BibLaTeX
+    \begin{thebibliography}{99} % {99} reserviert Platz für zweistellige Nummern
+    
+        \bibitem{Knuth97}
+        Donald E. Knuth (1997).
+        \textit{The Art of Computer Programming, Volume 1: Fundamental Algorithms}.
+        Addison-Wesley Professional.
+        
+        \bibitem{Lamport94}
+        Leslie Lamport (1994).
+        \textit{\LaTeX: A Document Preparation System}.
+        Addison-Wesley Professional.
+    
+    \end{thebibliography}
+\end{frame}
+

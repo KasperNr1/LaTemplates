@@ -1,0 +1,67 @@
+% =======================================================
+% NEUER ABSCHNITT: Bilder und Spalten
+% =======================================================
+\section{Bilder und Spalten}
+
+\begin{frame}{Einzelnes Bild}
+    \frametitle{Ein Bild einfügen}
+    Hier ist ein Bild. Es wird zentriert und auf 70% der Textbreite skaliert.
+    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.35\textwidth]{example-image-a}
+        \caption{Dies ist eine Bildunterschrift.}
+    \end{figure}
+    
+    % 'example-image-a' ist ein Platzhalterbild, das in den meisten
+    % TeX-Distributionen enthalten ist. Ersetze es durch deinen eigenen Dateipfad.
+\end{frame}
+
+%\subsection{Eine Unterüberschrift}
+
+\begin{frame}{Mehrere Bilder (via Spalten)}
+    \frametitle{Zwei Bilder (oder Text \& Bild) nebeneinander}
+    
+    % [T] richtet die Spalten oben bündig aus (Top-aligned)
+    % [c] wäre zentriert (Standard), [b] unten bündig
+    \begin{columns}[T]
+    
+        % Linke Spalte
+        \begin{column}{0.48\textwidth}
+            \begin{figure}
+                \includegraphics[width=\textwidth]{example-image-b}
+                \caption{Linkes Bild}
+            \end{figure}
+        \end{column}
+        
+        % Rechte Spalte
+        \begin{column}{0.48\textwidth}
+            \begin{figure}
+                \includegraphics[width=\textwidth]{example-image-c}
+                \caption{Rechtes Bild}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Text und Bild in Spalten}
+    \frametitle{Text neben einem Bild}
+    
+    \begin{columns}[c] % [c] = vertikal zentriert
+        \begin{column}{0.6\textwidth}
+            Hier steht der Text.
+            \begin{itemize}
+                \item Erklärung Punkt 1
+                \item Erklärung Punkt 2
+                \item Das Bild rechts illustriert diese Punkte auf hervorragende Weise.
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.4\textwidth}
+            \begin{figure}
+                \includegraphics[width=\textwidth]{example-image}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+

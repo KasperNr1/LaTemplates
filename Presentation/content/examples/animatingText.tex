@@ -1,0 +1,24 @@
+\section{''Animating'' Bullet Points}
+\begin{frame}{This is the heading}
+
+\begin{itemize}
+    \item <1-> From Start to end
+    \item <2> Only slide 2
+    \item <3-> Slide 3
+\end{itemize}
+
+Das hier ist Text zur Folie. Ich habe ihn nur einmal getippt und mit dynamischen Features ausgestattet. Zum Beispiel ist \alert<2>{das Hier auf Folie 2} farbig markiert.
+\end{frame}
+
+\begin{frame}[fragile]
+\only<1>{Diese weitere Zeile ist nur auf der ersten Seite des Frames zu sehen}
+
+\vspace{1em}
+
+Der Text über mir braucht nur dann Platz, wenn er tatsächlich angezeigt wird. Das liegt an \verb|\only|. Normalerweise wird der Platz fest kalkuliert und leer gelassen.
+
+\pause
+Noch mehr Info
+
+\end{frame}
+

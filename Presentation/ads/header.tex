@@ -1,0 +1,49 @@
+\documentclass[12pt, aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+% --- Benötigte Pakete für die neuen Features ---
+\usepackage{graphicx}      % Für Bilder (\includegraphics)
+\usepackage{booktabs}      % Für schöne Tabellen (\toprule, \midrule, \bottomrule)
+\usepackage{amsmath}       % Für erweiterte Mathe-Umgebungen (z.B. equation)
+\usepackage{listings}      % Für Code-Blöcke
+\usepackage{adjustbox}     % Zum Anpassen von Boxen (z.B. Tabellen)
+
+% (Optional) Definiert einen Standardpfad für Bilder
+% \graphicspath{{images/}} 
+
+% Themes and Colors at https://www.overleaf.com/learn/latex/beamer#Reference_guide
+\usetheme{Antibes}
+\usecolortheme{beaver}
+
+\setbeamertemplate{navigation symbols}{} % Hide PDF navigation symbols
+\setbeamercovered{transparent} % Content
+%\setbeamertemplate{headline}{} % No Navigation Bar at the Top 
+
+% Fügt eine Fußzeile mit "X / Y" rechtsbündig ein
+\setbeamertemplate{footline}{
+  \hfill % Schiebt den Inhalt nach rechts
+  \usebeamercolor{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber{} / \inserttotalframenumber
+  \hspace*{2ex} % Kleiner Abstand zum rechten Rand
+}
+
+% --- Setup für das 'listings' Paket (optional) ---
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    breaklines=true,
+    showstringspaces=false,
+    frame=single, % Ein Rahmen um den Code
+    captionpos=b, % Position der Caption (b=bottom)
+    numbers=left, % Zeilennummern links
+    numberstyle=\tiny\color{gray},
+    language=Python % Standardsprache
+}
+
+\title{First Beamer Presentation}
+\author{Matti Bos}
+\date{\today}

@@ -1,0 +1,49 @@
+% =======================================================
+% NEUER ABSCHNITT: Spezielle Folien-Layouts
+% =======================================================
+\section{Spezielle Folien-Layouts}
+
+\begin{frame}[plain]
+    \frametitle{Folie ohne Kopf- und Fußzeile (plain)}
+    
+    Diese Folie wird mit der Option \texttt{[plain]} erstellt.
+    Sie blendet die Kopf- und Fußzeile (Headline/Footline) des Themes 
+    (z.B. Navigationsleiste, Autor, Datum) komplett aus.
+    
+    \vfill
+    \begin{center}
+    \Huge Ideal für eine reine Bild-Folie oder ein Zitat.
+    \end{center}
+    \vfill
+    
+    % Beachte: Der \frametitle wird technisch gesetzt,
+    % aber vom 'plain' Style meistens auch ausgeblendet.
+\end{frame}
+
+\begin{frame}[plain]
+    Diese Folie wird mit der Option \texttt{[plain]} erstellt.
+    Sie blendet die Kopf- und Fußzeile (Headline/Footline) des Themes 
+    (z.B. Navigationsleiste, Autor, Datum) komplett aus.
+    
+    \vfill
+    \begin{center}
+    \Huge Ohne Framtitle ist die Folie auch tatsächlich komplett leer.
+    \end{center}
+    \vfill
+    
+    % Beachte: Der \frametitle wird technisch gesetzt,
+    % aber vom 'plain' Style meistens auch ausgeblendet.
+\end{frame}
+
+% --- Eine Folie nur ohne Kopfzeile (Headline) ---
+{ % Beginne eine lokale LaTeX-Gruppe
+    \setbeamertemplate{headline}{} % Leere die Kopfzeile nur für diese Folie
+    \begin{frame}{Folie nur ohne Kopfzeile}
+        Diese Folie hat keine Kopfzeile (den "Antibes"-Balken oben), 
+        aber die normale Fußzeile (Footline) des Themes sollte noch sichtbar sein.
+        \vfill
+        Dies wurde durch lokales Setzen von 
+        \texttt{\textbackslash setbeamertemplate\{headline\}\{\}}
+        innerhalb von \texttt{\{\}} erreicht.
+    \end{frame}
+} % Die Gruppe endet, die Kopfzeile ist auf der nächsten Folie wieder da.
