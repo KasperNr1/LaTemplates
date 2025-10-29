@@ -32,6 +32,29 @@ hello_world()
     \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile] % [fragile] ist wichtig für 'verbatim' und 'listings'
+    \frametitle{Sehr Langer Code-Block (mit \texttt{listings})}
+    \begin{lstlisting}[basicstyle=\tiny, language=Python, caption={Ein Python Beispiel mit einer sehr langen Methode die nicht auf eine Seite passt und einer noch längeren Caption in der die Methode erklärt wird}]
+def hello_world():
+    # Ein Kommentar
+    print("Hello, Beamer!")
+    my_Long_Method(1)
+    
+def my_Long_Method(Parameter):
+    var = 1
+    num = True
+    Hello = "World"
+
+    for i in range(var):
+      if num:
+        print(Hello)
+      else:
+        print("Bye!")
+
+hello_world()
+    \end{lstlisting}
+\end{frame}
+
 \begin{frame}{Tabellen}
     \frametitle{Eine Tabelle mit \texttt{booktabs}}
     
