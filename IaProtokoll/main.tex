@@ -1,0 +1,76 @@
+\input{ads/header}
+
+\begin{document}
+
+    % Deckblatt
+	\begin{spacing}{1}
+		\input{ads/cover.tex}
+	\end{spacing}
+	\newpage
+	
+	\pagestyle{plain}		% nur Seitenzahlen im Fuß
+	\RedeclareSectionCommand[beforeskip=\kapitelabstand]{chapter} % stellt Abstand vor Kapitelüberschriften ein
+	
+	% Inhaltsverzeichnis
+	\begin{spacing}{1.1}
+		\begingroup
+			
+			\pagestyle{empty}
+			
+			\setcounter{tocdepth}{2}
+			
+			\tableofcontents
+			%\clearpage %löscht die Seitenzahlen ab der zweiten Seite
+		\endgroup
+	\end{spacing}
+	\newpage
+	
+	% \pagestyle{chapter}
+	% \renewcommand*{\chapterpagestyle}{chapter}
+	
+	% Abkürzungsverzeichnis
+	% \cleardoublepage
+	% \input{ads/acronyms.tex}
+	
+	% Abbildungsverzeichnis
+	\cleardoublepage
+	\listoffigures
+
+	%Tabellenverzeichnis
+	\cleardoublepage
+	\listoftables
+
+	% Quellcodeverzeichnis
+	\cleardoublepage
+	\lstlistoflistings
+	
+	\cleardoublepage
+	
+	\pagestyle{plain}		% Kolumnentitel im Kopf, Seitenzahlen im Fuß
+	\renewcommand*{\chapterpagestyle}{chapter}
+	
+	% Todo notes
+	\listoftodos[Notes]
+	
+	% Inhalt
+	%\foreach \i in {01,02,03,04,05,06,07,...,10} {%
+	%	\edef\FileName{content/\i kapitel}%
+	%		\IfFileExists{\FileName}{%
+	%			\input{\FileName}
+	%		}
+	%		{%
+	%			%file does not exist
+	%		}
+	%}
+	\input{content/01kapitel.tex}
+	\input{content/02kapitel.tex}
+
+	\clearpage
+
+	% Literaturverzeichnis
+	\cleardoublepage
+	\printbibliography
+
+	% Glossar
+	\printglossary[style=altlist,title=Glossar]
+\end{document}
