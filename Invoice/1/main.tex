@@ -1,0 +1,104 @@
+% LaTeX Simple Invoice Template
+% Original by Amy Fare | amyfare.ca
+% Adapted for German use (Manual calculation)
+
+\documentclass[a4paper]{letter} % A4 Papierformat
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}      % Wichtig für Umlaute
+\usepackage[ngerman]{babel}   % Deutsches Datum und Trennung
+\usepackage[colorlinks]{hyperref}
+\usepackage[left=2.5cm,top=2.5cm,right=2.5cm,bottom=2.5cm]{geometry} % Ränder angepasst für A4
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{hhline}
+\usepackage{array}
+\usepackage{eurosym}          % Für das € Zeichen (\euro)
+
+\hypersetup{
+    urlcolor=blue
+}
+
+% Definition für rechtsbündige Spalten mit fester Breite in TabularX
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+% In die Präambel einfügen (vor \begin{document}):
+\renewcommand{\tabularxcolumn}[1]{m{#1}} % Vertikale Zentrierung für X-Spalten
+
+\begin{document}
+    
+\thispagestyle{empty}
+
+% --- KOPFZEILE (Logo & Absender & Rechnungsdaten) ---
+\begin{tabularx}{\textwidth}{l X l}
+   % Ersetze 'example-image' durch deinen Dateinamen (z.B. logo.png)
+   \hspace{-8pt} \multirow{5}{*}{\includegraphics[height=1.98cm]{example-image}} 
+   & \textbf{Dein Firmenname} & \hskip12pt\multirow{5}{*}{\begin{tabular}{r}\footnotesize\bf RECHNUNG \\[-0.8ex] \footnotesize NR-2025-01 \\[-0.4ex] \footnotesize\bf DATUM \\[-0.8ex] \footnotesize \MakeUppercase{\today} \\[-0.4ex] \footnotesize\bf ZAHLUNGSZIELE \\[-0.8ex] \footnotesize 14 TAGE NACH ERHALT \end{tabular}}\hspace{-6pt} \\
+   & Dein Name & \\
+   & deine-website.de & \\
+   & +49 123 456789 & \\
+   & mail@beispiel.de & \\
+\end{tabularx} 
+
+\vspace{1 cm}
+
+\textbf{RECHNUNGSEMPFÄNGER}
+
+% Name des Kunden
+\Large\textbf{Musterkunde GmbH}\normalsize
+
+\vspace{1em}
+Musterstraße 55\\
+12345 Musterstadt
+
+\vspace{1 cm}
+
+% --- TABELLE DER POSITIONEN ---
+\begin{tabularx}{\linewidth}{c X X X c}
+    \hline
+    & & & &\\[0.25ex]
+    \centering{\bf{Leistung}} & \centering{\bf{Einzelpreis}} & \centering{\bf{Menge}} & \centering{\bf{Rabatt}} & \bf Gesamt\\[2.5ex]\hline
+    & & & &\\
+    
+    % Position 1
+    \centering IT-Nachhilfe (1 Std.) & \centering 20,00 \euro & \centering 1 & \centering - & 20,00 \euro\\[2.5ex]\hline
+    & & & &\\
+    \centering IT-Nachhilfe (1 Std.) & \centering 20,00 \euro & \centering 1 & \centering - & 20,00 \euro\\[2.5ex]\hline
+    & & & &\\
+    
+    % Position 2 (Beispiel)
+    \centering Anfahrt & \centering 15,00 \euro & \centering 1 & \centering - & 15,00 \euro\\[2.5ex]\hline
+    
+    & & & &\\
+    & & & \bf Zwischensumme & 35,00 \euro\\[2.5ex]\hhline{~~~--}
+    & & & & \\
+    % Falls Kleinunternehmer, Zeile löschen oder 0,00 eintragen
+    & & & \bf USt. (19\%) & 6,65 \euro\\[2.5ex]\hhline{~~~--}
+    & & & & \\
+    & & & \bf Endbetrag & \textbf{41,65 \euro}\\[2.5ex]\hhline{~~~==}
+\end{tabularx}
+
+\vspace{1 cm}
+
+\Large\textbf{Zahlungsinformationen}\normalsize
+
+\vspace{0.2 cm}
+
+Bitte überweisen Sie den Betrag auf folgendes Konto:
+
+\vspace{0.5em}
+
+\textbf{Überweisung}\\
+IBAN: DE00 1234 5678 9012 3456 78\\
+BIC: XXXXXXXXXXX\\
+Verwendungszweck: Rechnungsnummer
+
+\vspace{0.5em}
+
+\textbf{PayPal}\\
+\href{https://paypal.me/deinname}{paypal.me/deinname}
+
+\vspace{1cm}
+\footnotesize {Steuernummer: 12/345/67890}
+
+\end{document}
