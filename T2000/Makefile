@@ -3,7 +3,7 @@
 
 PDF=main.pdf
 TEX=main.tex
-BIB=main.bib
+BIB=bibliographie.bib
 AUX=main.aux
 LOG=main.log
 BLG=main.blg
