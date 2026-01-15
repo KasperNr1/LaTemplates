@@ -54,11 +54,14 @@
 	\cleardoublepage
 	\listoftables
 
-	% Quellcodeverzeichnis
+% Quellcodeverzeichnis
 	\cleardoublepage
 	\lstlistoflistings
 	
 	\cleardoublepage
+	
+	\newcounter{savedromancounter}					% Variable um die
+	\setcounter{savedromancounter}{\value{page}}	% Seitenzahl zu speichern
 	
 	\pagenumbering{arabic}
 	
@@ -84,10 +87,13 @@
 
 	\clearpage
 
+	\pagenumbering{Roman}
+	\setcounter{page}{\value{savedromancounter}} % Fortsetzung mit nächster römischer Zahl.
+	
 	% Literaturverzeichnis
 	\cleardoublepage
 	\printbibliography
 
 	% Glossar
 	\printglossary[style=altlist,title=Glossar]
-\end{document}
+\end{document}	
