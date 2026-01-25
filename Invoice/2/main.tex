@@ -1,0 +1,110 @@
+\documentclass[
+    fontsize=11pt,
+    paper=a4,
+    DIN,                 % DIN 5008 Layout
+    parskip=half,        % Halbe Leerzeile zwischen Absätzen
+    enlargefirstpage,    % Mehr Platz auf der ersten Seite
+    fromalign=right,     % Absender rechts oben
+    fromphone=true,      % Telefonnummer anzeigen
+    fromemail=true,      % Email anzeigen
+    fromurl=false,       % Webseite anzeigen (optional)
+    fromlogo=false,      % Logo anzeigen (optional)
+    subject=titled,      % Betreff hervorheben
+]{scrlttr2}
+
+% --- DEUTSCHE SPRACHE & ZEICHENSATZ ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel} % Wichtig für "z.B.", Datum, Trennung
+\usepackage{lmodern}        % Scharfe Schriftart
+\usepackage{eurosym}        % Das offizielle € Zeichen (\euro)
+
+% --- TABELLEN & BERECHNUNG ---
+\usepackage{booktabs}       % Schönere Linien (\toprule etc.)
+\usepackage{spreadtab}      % Für die automatischen Berechnungen
+\usepackage{numprint}       % Zahlenformatierung
+
+% Einstellungen für deutsche Zahlen (Komma statt Punkt)
+\STsetdecimalseparator{,}
+\npthousandsep{.}
+\npdecimalsign{,}
+
+% --- DEINE ABSENDERDATEN ---
+\setkomavar{fromname}{Max Mustermann}
+\setkomavar{fromaddress}{Musterstraße 1\\12345 Musterstadt}
+\setkomavar{fromphone}{+49 123 456 789}
+\setkomavar{fromemail}{max@mustermann.de}
+\setkomavar{place}{Musterstadt} % Ort vor dem Datum
+\setkomavar{signature}{Max Mustermann} % Unterschrift
+
+%IBAN & Bankdaten für die Fußzeile
+\setkomavar{firstfoot}{
+    \footnotesize \color{gray}
+    \centering
+    \begin{tabular}{c c c}
+         \usekomavar{fromname} & IBAN: DE12 3456 7890 1234 56 & Steuernummer: 12/345/67890 \\
+         \usekomavar{fromaddress} & BIC: XXXXXXXXXXX & Amtsgericht Musterstadt
+    \end{tabular}
+}
+
+\begin{document}
+
+% --- EMPFÄNGER DATEN ---
+\begin{letter}{
+    Beispielkunde GmbH \\
+    Einkaufsabteilung \\
+    Industriestraße 55 \\
+    \\
+    54321 Kundenstadt
+}
+
+% --- RECHNUNGSDATEN ---
+\setkomavar{subject}{Rechnung Nr. 2025-001}
+\setkomavar{customer}{KD-1005} % Kundennummer (erscheint im Infoblock)
+\setkomavar{date}{\today}
+
+\opening{Sehr geehrte Damen und Herren,}
+
+vielen Dank für Ihren Auftrag. Hiermit stelle ich Ihnen folgende Leistungen in Rechnung:
+
+\vspace{1em}
+
+% --- BERECHNUNGSTABELLE ---
+% WICHTIG: Eingabe der Preise mit PUNKT (45.00), Ausgabe erfolgt als Komma
+\begin{spreadtab}{{tabular}{p{8cm} r r r}}
+    \toprule
+    \textbf{Beschreibung} & \textbf{Menge} & \textbf{Einzel (\euro)} & \textbf{Gesamt (\euro)} \\
+    \midrule
+    \vspace{2pt} \\
+    
+    % Position 1
+    @ IT-Support und Wartung & 5 & 60.00 & :={[-2,0]*[-1,0]} \\
+    
+    % Position 2
+    @ Implementierung Backend & 12.5 & 85.00 & :={[-2,0]*[-1,0]} \\
+    
+    % Position 3
+    @ Server-Setup Pauschale & 1 & 150.00 & :={[-2,0]*[-1,0]} \\
+    
+    \midrule
+    
+    % --- SUMMEN ---
+    @ \multicolumn{3}{r}{Zwischensumme Netto:} & :={sum(d3:d6)} \\
+    
+    % 19% MwSt (0.19). Für Kleinunternehmer Zeile löschen!
+    @ \multicolumn{3}{r}{Umsatzsteuer (19\%):} & :={[-1,0]*0.19} \\
+    
+    @ \multicolumn{3}{r}{\textbf{Gesamtbetrag:}} & \textbf{:={[-2,0]+[-1,0]}} \\
+    
+    \bottomrule
+\end{spreadtab}
+
+\vspace{1.5em}
+
+Bitte überweisen Sie den Gesamtbetrag von \textbf{\STtag{cell(d9)} \euro} innerhalb von 14 Tagen auf das unten genannte Konto.
+Das Leistungsdatum entspricht dem Rechnungsdatum.
+
+\closing{Mit freundlichen Grüßen}
+
+\end{letter}
+\end{document}

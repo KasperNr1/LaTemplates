@@ -1,0 +1,110 @@
+% LaTeX Simple Invoice Template
+% Original by Amy Fare | amyfare.ca
+% Adapted for German/Automatic Calculation by Gemini
+
+\documentclass{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}      % Wichtig für Umlaute
+\usepackage[ngerman]{babel}   % Deutsche Spracheinstellungen
+\usepackage[colorlinks]{hyperref}
+\usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry} 
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{hhline}
+\usepackage{array}
+\usepackage{eurosym}          % Für das € Zeichen
+\usepackage{spreadtab}        % Für automatische Berechnungen
+\usepackage{numprint}         % Zahlenformatierung (1.000,00)
+
+\hypersetup{
+    urlcolor=blue
+}
+
+% Einstellungen für deutsche Zahlenformatierung
+% \STsetdecimalseparator{,} 
+\npthousandsep{.}
+\npdecimalsign{,}
+
+% Definition für rechtsbündige Spalten in TabularX
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+\begin{document}
+    
+\thispagestyle{empty}
+
+% --- KOPFZEILE ---
+% Hier Logo und deine Firmeninfos anpassen
+\begin{tabularx}{\textwidth}{l X l}
+   \hspace{-8pt} \multirow{5}{*}{\includegraphics[width=2.5cm]{example-image}} & \textbf{Dein Firmenname} & \hskip12pt\multirow{5}{*}{\begin{tabular}{r}\footnotesize\bf RECHNUNG \\[-0.8ex] \footnotesize NR. 2025-001 \\[-0.4ex] \footnotesize\bf DATUM \\[-0.8ex] \footnotesize \today \\[-0.4ex] \footnotesize\bf FÄLLIG \\[-0.8ex] \footnotesize 14 TAGE NACH ERHALT \end{tabular}}\hspace{-6pt} \\
+   & Dein Name & \\
+   & deine-website.de & \\
+   & +49 123 456789 & \\
+   & mail@beispiel.de & \\
+\end{tabularx} 
+
+\vspace{1 cm}
+
+\textbf{RECHNUNGSEMPFÄNGER}
+
+\Large\textbf{Musterkunde GmbH}\normalsize\\
+Musterstraße 55\\
+12345 Musterstadt
+
+\vspace{1 cm}
+
+% --- TABELLE MIT BERECHNUNG ---
+% Spalten: Beschreibung (X), Einzelpreis (r), Menge (c), Gesamt (r)
+\begin{spreadtab}{{tabularx}{\linewidth}{X r c r}}
+    \hline
+    & & & \\[0.25ex]
+    @ \textbf{Leistungsbeschreibung} & @ \textbf{Einzel (\euro)} & @ \textbf{Menge} & @ \textbf{Gesamt (\euro)} \\[1ex] \hline
+    & & & \\
+    
+    % --- POSITIONEN ---
+    % WICHTIG: Preise mit PUNKT eingeben (z.B. 60.00). LaTeX macht daraus Kommas.
+    % Formel :={[-2,0]*[-1,0]} bedeutet: Spalte Preis * Spalte Menge
+    
+    @ IT-Support & 60.00 & 2 & :={[-2,0]*[-1,0]} \\[1.5ex]
+    
+    @ Software-Installation & 25.50 & 4 & :={[-2,0]*[-1,0]} \\[1.5ex]
+    
+    @ Anfahrtspauschale & 15.00 & 1 & :={[-2,0]*[-1,0]} \\[1.5ex]
+    
+    % --- SUMMEN ---
+    \hline
+    & & & \\
+    @ & @ \multicolumn{2}{r}{Netto:} & :={sum(d4:d8)} \\[1ex]
+    
+    % MwSt (0.19). Falls Kleinunternehmer: Zeile löschen oder Faktor auf 0 setzen
+    @ & @ \multicolumn{2}{r}{Umsatzsteuer (19\%):} & :={[-1,0]*0.19} \\[1ex]
+    \hhline{~~~=}
+    
+    @ & @ \multicolumn{2}{r}{\textbf{Gesamtbetrag:}} & \textbf{:={[-2,0]+[-1,0]}} \\[1ex]
+    \hhline{~~~=}
+\end{spreadtab}
+
+\vspace{1.5 cm}
+
+\Large\textbf{Zahlungsinformationen}\normalsize
+
+\vspace{0.2 cm}
+
+Bitte überweisen Sie den Betrag innerhalb von 14 Tagen auf folgendes Konto:
+
+\vspace{0.3 cm}
+
+\begin{tabular}{ll}
+    \textbf{Bank:} & Musterbank \\
+    \textbf{IBAN:} & DE00 1234 5678 9012 3456 78 \\
+    \textbf{BIC:}  & XXXXXXXXXXX \\
+    \textbf{Verwendungszweck:} & Rechnungsnr. 2025-001
+\end{tabular}
+
+\vspace{1cm}
+\footnotesize
+\color{gray}
+Steuernummer: 12/345/67890 $\cdot$ Amtsgericht Musterstadt
+
+\end{document}
