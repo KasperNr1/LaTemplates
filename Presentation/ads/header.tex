@@ -20,6 +20,18 @@
 \setbeamercovered{transparent} % Content
 %\setbeamertemplate{headline}{} % No Navigation Bar at the Top 
 
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+
 % Fügt eine Fußzeile mit "X / Y" rechtsbündig ein
 \setbeamertemplate{footline}{
   \hfill % Schiebt den Inhalt nach rechts
