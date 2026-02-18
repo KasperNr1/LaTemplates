@@ -42,6 +42,37 @@
 	\pagestyle{chapter}
 	\renewcommand*{\chapterpagestyle}{chapter}
 	
+	%%% Start der Single-Page-Verzeichnisse %%%
+
+	% Verzeichnisse auf einer Seite
+	% \cleardoublepage
+	% \begingroup
+	%  	% Disable Clearpage and Cleardoublepage inside this group
+	% 	\let\clearpage\relax
+	% 	\let\cleardoublepage\relax
+
+	% 	% Insert List of Figure
+	% 	\listoffigures
+
+	% 	% adds some space between the two lists
+	% 	\bigskip  
+
+	% 	%Tabellenverzeichnis 
+	% 	\listoftables
+
+	% 	% Insert List of Listings
+	% 	\bigskip  
+
+	% 	\lstlistoflistings
+
+	% 	\bigskip  
+
+	% 	\listoftodos[Notes]
+	% \endgroup
+	%%% Ende der Single-Page-Verzeichnisse %%%
+
+
+	%%% Start der Verzeichnisse auf separaten Seiten %%%
 	% Abkürzungsverzeichnis
 	\cleardoublepage
 	\input{ads/acronyms.tex}
@@ -54,11 +85,14 @@
 	\cleardoublepage
 	\listoftables
 
-% Quellcodeverzeichnis
+	% Quellcodeverzeichnis
 	\cleardoublepage
 	\lstlistoflistings
 	
+	% Todo notes
+	\listoftodos[Notes]
 	\cleardoublepage
+	%%% Ende der Verzeichnisse auf separaten Seiten %%%
 	
 	\newcounter{savedromancounter}					% Variable um die
 	\setcounter{savedromancounter}{\value{page}}	% Seitenzahl zu speichern
@@ -68,8 +102,6 @@
 	\pagestyle{plain}		% Kolumnentitel im Kopf, Seitenzahlen im Fuß
 	\renewcommand*{\chapterpagestyle}{chapter}
 	
-	% Todo notes
-	\listoftodos[Notes]
 	
 	% Inhalt
 	%\foreach \i in {01,02,03,04,05,06,07,...,10} {%
