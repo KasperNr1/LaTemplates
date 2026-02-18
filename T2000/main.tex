@@ -42,57 +42,59 @@
 	\pagestyle{chapter}
 	\renewcommand*{\chapterpagestyle}{chapter}
 	
-	%%% Start der Single-Page-Verzeichnisse %%%
-
-	% Verzeichnisse auf einer Seite
-	% \cleardoublepage
-	% \begingroup
-	%  	% Disable Clearpage and Cleardoublepage inside this group
-	% 	\let\clearpage\relax
-	% 	\let\cleardoublepage\relax
-
-	% 	% Insert List of Figure
-	% 	\listoffigures
-
-	% 	% adds some space between the two lists
-	% 	\bigskip  
-
-	% 	%Tabellenverzeichnis 
-	% 	\listoftables
-
-	% 	% Insert List of Listings
-	% 	\bigskip  
-
-	% 	\lstlistoflistings
-
-	% 	\bigskip  
-
-	% 	\listoftodos[Notes]
-	% \endgroup
-	%%% Ende der Single-Page-Verzeichnisse %%%
-
-
-	%%% Start der Verzeichnisse auf separaten Seiten %%%
 	% Abkürzungsverzeichnis
 	\cleardoublepage
 	\input{ads/acronyms.tex}
 	
-	% Abbildungsverzeichnis
-	\cleardoublepage
-	\listoffigures
+	% Wechsel zwischen Single-Page und Multi-Page Verzeichnissen
+	\ifsinglepagelists
+		%%% Single-Page-Verzeichnisse %%%
+		% Alle Verzeichnisse auf einer Seite
+		\cleardoublepage
+		\begingroup
+		 	% Disable Clearpage and Cleardoublepage inside this group
+		 	\let\clearpage\relax
+		 	\let\cleardoublepage\relax
 
-	%Tabellenverzeichnis
-	\cleardoublepage
-	\listoftables
+		 	% Abbildungsverzeichnis
+		 	\listoffigures
 
-	% Quellcodeverzeichnis
-	\cleardoublepage
-	\lstlistoflistings
-	
-	% Todo notes
-	\listoftodos[Notes]
-	\cleardoublepage
-	%%% Ende der Verzeichnisse auf separaten Seiten %%%
+		 	% adds some space between the two lists
+		 	\bigskip  
+
+		 	%Tabellenverzeichnis 
+		 	\listoftables
+
+		 	% Quellcodeverzeichnis
+		 	\bigskip  
+
+		 	\lstlistoflistings
+
+		 	\bigskip  
+
+		 	\listoftodos[Notes]
+		\endgroup
+		\cleardoublepage
+	\else
+		%%% Multi-Page-Verzeichnisse %%%
+		% Jedes Verzeichnis auf separater Seite
+		
+		% Abbildungsverzeichnis
+		\cleardoublepage
+		\listoffigures
+
+		%Tabellenverzeichnis
+		\cleardoublepage
+		\listoftables
+
+		% Quellcodeverzeichnis
+		\cleardoublepage
+		\lstlistoflistings
+		
+		% Todo notes
+		\listoftodos[Notes]
+		\cleardoublepage
+	\fi
 	
 	\newcounter{savedromancounter}					% Variable um die
 	\setcounter{savedromancounter}{\value{page}}	% Seitenzahl zu speichern
