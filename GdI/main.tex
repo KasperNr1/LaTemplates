@@ -1,0 +1,155 @@
+% ----------------------- TODO ---------------------------
+% Diese Daten müssen pro Blatt angepasst werden:
+\newcommand{\NUMBER}{1}
+\newcommand{\EXERCISES}{3}
+% Diese Daten müssen einmalig pro Vorlesung angepasst werden:
+\newcommand{\COURSE}{Grundlagen des Internets}
+\newcommand{\TUTOR}{Vorname Nachname}
+\newcommand{\STUDENTA}{John Doe}
+\newcommand{\STUDENTB}{Jane Doe}
+\newcommand{\STUDENTC}{}
+\newcommand{\DEADLINE}{XX.XX.2019}
+% ----------------------- TODO ---------------------------
+
+\documentclass[a4paper]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{pdflscape}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{polynom}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{forloop}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{fancybox}
+\usepackage{tikz}
+
+%Größe der Ränder setzen
+\geometry{a4paper,left=3cm, right=3cm, top=3cm, bottom=3cm}
+
+%Kopf- und Fußzeile
+\pagestyle {fancy}
+\fancyhead[L]{Tutor: \TUTOR}
+\fancyhead[C]{\COURSE}
+\fancyhead[R]{\today}
+
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{Seite \thepage /\pageref*{LastPage}}
+
+%Formatierung der Überschrift, hier nichts ändern
+\def\header#1#2{
+  \begin{center}
+    {\Large Übungsblatt #1}\\
+    {(Abgabetermin #2)}
+  \end{center}
+}
+
+%Definition der Punktetabelle, hier nichts ändern
+\newcounter{punktelistectr}
+\newcounter{punkte}
+\newcommand{\punkteliste}[2]{%
+  \setcounter{punkte}{#2}%
+  \addtocounter{punkte}{-#1}%
+  \stepcounter{punkte}%<-- also punkte = m-n+1 = Anzahl Spalten[1]
+  \begin{center}%
+  \begin{tabularx}{\linewidth}[]{@{}*{\thepunkte}{>{\centering\arraybackslash} X|}@{}>{\centering\arraybackslash}X}
+      \forloop{punktelistectr}{#1}{\value{punktelistectr} < #2 } %
+      {%
+        \thepunktelistectr &
+      }
+      #2 &  $\Sigma$ \\
+      \hline
+      \forloop{punktelistectr}{#1}{\value{punktelistectr} < #2 } %
+      {%
+        &
+      } &\\
+      \forloop{punktelistectr}{#1}{\value{punktelistectr} < #2 } %
+      {%
+        &
+      } &\\
+    \end{tabularx}
+  \end{center}
+}
+
+\begin{document}
+
+\begin{tabularx}{\linewidth}{m{0.2 \linewidth}X}
+  \begin{minipage}{\linewidth}
+    \STUDENTA\\
+    \STUDENTB\\
+    \STUDENTC
+  \end{minipage} & \begin{minipage}{\linewidth}
+    \punkteliste{1}{\EXERCISES}
+  \end{minipage}\\
+\end{tabularx}
+
+\header{Nr. \NUMBER}{\DEADLINE}
+
+
+
+% ----------------------- TODO ---------------------------
+% Hier werden die Aufgaben/Lösungen eingetragen:
+
+\section*{Aufgabe 1}
+\subsection*{a)}
+
+Dies ist eine Aufgabe. Text könnt ihr hier einfach ganz normal schreiben, jedoch bricht
+Latex
+nicht
+die
+Zeilen
+um, wenn ihr im Editor eine neue Zeile anfangt.
+Um einen Zeilenumbruch \\
+zu erhalten \\
+verwendet zwei Backslash.\\
+Einen neuen Absatz erhaltet ihr, wenn ihr zwei Zeilenumbrüche einfügt.
+
+Es gibt zwei Arten des Mathemodus, einen im Text $x_1 = 5 \cdot 10^{42}$ und einen freistehenden.
+
+$$x_2 = \sqrt{ \sin{ \alpha \times \beta} \cdot \frac{a}{b}} + \log_2{64}$$
+
+Wenn der Mathemodus sich über mehrere Zeilen erstrecken soll, so könnt ihr die Umgebung align benutzen. Der Stern sagt hierbei, dass die Zeilen nicht nummeriert werden sollen. Das \& ist ein align-parameter, die Zeilen werden hierbei so ausgerichtet, dass die \& immer über einander stehen.
+
+\begin{align*}
+\text{Text im Mathemodus} & = 5\\
+x_2 &= 7\\
+\Sigma + \phi + \epsilon + w &= \text{sinnlose Zeichen}
+\end{align*}
+
+
+Ein Bild kann man folgendermaßen einbinden: \\
+Entfernt dabei das \% und ersetzt Bild.jpg mit dem Dateinamen. \% kommentiert eine Zeile aus.
+
+\begin{figure}[H]
+\centering
+%\includegraphics[width=11cm]{Bild.jpg}
+\caption{Dies ist die Bildunterschrift}
+\end{figure}
+
+Eine Tabelle könnt ihr so anlegen:\\
+In der zweiten geschweiften Klammer wird das Layout der Tabelle definiert. Das \& trennt hierbei die Spalten.\\
+\ \\ %Trick um eine leere Zeile zu erhalten, gleichzeitig wird in der nächsten Zeile kein neuer Absatz begonnen
+\begin{tabular}{c|lr}
+  zentrierte Spalte & linksbündig & rechtsbündig\\
+  \hline
+  zweite Zeile & \\
+\end{tabular}\\
+\ \\
+Eine neue Seite wird durch $\backslash$newpage erzwungen.
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
