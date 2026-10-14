@@ -5,10 +5,13 @@
 % Diese Daten müssen einmalig pro Vorlesung angepasst werden:
 \newcommand{\COURSE}{Grundlagen des Internets}
 \newcommand{\TUTOR}{Vorname Nachname}
-\newcommand{\STUDENTA}{John Doe}
-\newcommand{\STUDENTB}{Jane Doe}
+\newcommand{\EmailA}{robin-leon.schnaiter@student.uni-tuebingen.de}
+\newcommand{\STUDENTA}{1111111: Robin Schnaiter \hfill \href{mailto:\EmailA}{\EmailA}}
+
+\newcommand{\EmailB}{matti-magnus.bos@student.uni-tuebingen.de}
+\newcommand{\STUDENTB}{2222222: Matti Bos \hfill \href{mailto:\EmailB}{\EmailB}}
 \newcommand{\STUDENTC}{}
-\newcommand{\DEADLINE}{XX.XX.2019}
+\newcommand{\DEADLINE}{}
 % ----------------------- TODO ---------------------------
 
 \documentclass[a4paper]{scrartcl}
@@ -85,15 +88,11 @@
 
 \begin{document}
 
-\begin{tabularx}{\linewidth}{m{0.2 \linewidth}X}
-  \begin{minipage}{\linewidth}
-    \STUDENTA\\
-    \STUDENTB\\
-    \STUDENTC
-  \end{minipage} & \begin{minipage}{\linewidth}
+    \STUDENTA
+
+    \STUDENTB
+    
     \punkteliste{1}{\EXERCISES}
-  \end{minipage}\\
-\end{tabularx}
 
 \header{Nr. \NUMBER}{\DEADLINE}
 
@@ -102,54 +101,30 @@
 % ----------------------- TODO ---------------------------
 % Hier werden die Aufgaben/Lösungen eingetragen:
 
-\section*{Aufgabe 1}
-\subsection*{a)}
-
-Dies ist eine Aufgabe. Text könnt ihr hier einfach ganz normal schreiben, jedoch bricht
-Latex
-nicht
-die
-Zeilen
-um, wenn ihr im Editor eine neue Zeile anfangt.
-Um einen Zeilenumbruch \\
-zu erhalten \\
-verwendet zwei Backslash.\\
-Einen neuen Absatz erhaltet ihr, wenn ihr zwei Zeilenumbrüche einfügt.
-
-Es gibt zwei Arten des Mathemodus, einen im Text $x_1 = 5 \cdot 10^{42}$ und einen freistehenden.
-
-$$x_2 = \sqrt{ \sin{ \alpha \times \beta} \cdot \frac{a}{b}} + \log_2{64}$$
-
-Wenn der Mathemodus sich über mehrere Zeilen erstrecken soll, so könnt ihr die Umgebung align benutzen. Der Stern sagt hierbei, dass die Zeilen nicht nummeriert werden sollen. Das \& ist ein align-parameter, die Zeilen werden hierbei so ausgerichtet, dass die \& immer über einander stehen.
-
-\begin{align*}
-\text{Text im Mathemodus} & = 5\\
-x_2 &= 7\\
-\Sigma + \phi + \epsilon + w &= \text{sinnlose Zeichen}
-\end{align*}
+\section*{Aufgabe 1.1 ISO/OSI-Schichtenmodell}
+\begin{enumerate}
+  \item Aufg1
+  \item 2
+  \item 3
+\end{enumerate}
 
 
-Ein Bild kann man folgendermaßen einbinden: \\
-Entfernt dabei das \% und ersetzt Bild.jpg mit dem Dateinamen. \% kommentiert eine Zeile aus.
 
-\begin{figure}[H]
-\centering
-%\includegraphics[width=11cm]{Bild.jpg}
-\caption{Dies ist die Bildunterschrift}
-\end{figure}
+\section*{Aufgabe 1.2 Netzwerkprinzipien}
+\begin{enumerate}
+  \item Aufg1
+  \item 2
+  \item 3
+  \item 4
+\end{enumerate}
 
-Eine Tabelle könnt ihr so anlegen:\\
-In der zweiten geschweiften Klammer wird das Layout der Tabelle definiert. Das \& trennt hierbei die Spalten.\\
-\ \\ %Trick um eine leere Zeile zu erhalten, gleichzeitig wird in der nächsten Zeile kein neuer Absatz begonnen
-\begin{tabular}{c|lr}
-  zentrierte Spalte & linksbündig & rechtsbündig\\
-  \hline
-  zweite Zeile & \\
-\end{tabular}\\
-\ \\
-Eine neue Seite wird durch $\backslash$newpage erzwungen.
+
+\section*{Aufgabe 1.3 Schichten entlang eines Pfades}
+\begin{enumerate}
+  \item Aufg1
+  \item 2
+  \item 3
+  \item 4
+\end{enumerate}
+
 \end{document}
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:
