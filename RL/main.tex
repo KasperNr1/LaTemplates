@@ -1,0 +1,97 @@
+% ----------------------- TODO ---------------------------
+% Diese Daten müssen pro Blatt angepasst werden:
+\newcommand{\NUMBER}{1}
+\newcommand{\DEADLINE}{01. Januar 2026}
+
+% Diese Daten müssen einmalig pro Vorlesung angepasst werden:
+\newcommand{\COURSE}{Reinforcement Learning}
+\newcommand{\TUTOR}{Vorname Nachname}
+\newcommand{\EmailA}{robin-leon.schnaiter@student.uni-tuebingen.de}
+\newcommand{\STUDENTA}{1111111: Robin Schnaiter \hfill \href{mailto:\EmailA}{\EmailA}}
+
+\newcommand{\EmailB}{matti-magnus.bos@student.uni-tuebingen.de}
+\newcommand{\STUDENTB}{2222222: Matti Bos \hfill \href{mailto:\EmailB}{\EmailB}}
+
+\newcommand{\EmailC}{luca-david.brehm@student.uni-tuebingen.de}
+\newcommand{\STUDENTC}{3333333: Luca Brehm \hfill \href{mailto:\EmailC}{\EmailC}}
+% ----------------------- TODO ---------------------------
+
+\documentclass[a4paper]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{pdflscape}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{polynom}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{forloop}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{fancybox}
+\usepackage{tikz}
+
+%Größe der Ränder setzen
+\geometry{a4paper,left=3cm, right=3cm, top=3cm, bottom=3cm}
+
+%Kopf- und Fußzeile
+\pagestyle {fancy}
+\fancyhead[L]{Tutor: \TUTOR}
+\fancyhead[C]{\COURSE}
+\fancyhead[R]{\today}
+
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{Page \thepage /\pageref*{LastPage}}
+
+%Formatierung der Überschrift, hier nichts ändern
+\def\header#1#2{
+  \begin{center}
+    {\Large Homework #1}\\
+    {(Deadline #2)}
+  \end{center}
+}
+
+
+\begin{document}
+
+    \STUDENTA
+
+    \STUDENTB
+    
+    \STUDENTC
+    
+\header{Nr. \NUMBER}{\DEADLINE}
+
+
+
+% ----------------------- TODO ---------------------------
+% Hier werden die Aufgaben/Lösungen eingetragen:
+
+\section{First something to do}
+\begin{enumerate}
+  \item 1
+  \item 2
+  \item 3
+\end{enumerate}
+
+
+
+\section{More Work}
+\begin{enumerate}
+  \item 1
+  \item 2
+  \item 3
+  \item 4
+\end{enumerate}
+
+\end{document}
